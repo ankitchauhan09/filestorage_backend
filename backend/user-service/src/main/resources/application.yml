@@ -1,0 +1,32 @@
+server:
+  port: 8002
+
+  ssl:
+    enabled: true
+    key-alias: user_service
+    key-password: filestorage_user
+    key-store-password: filestorage_user
+    key-store: classpath:user_service.jks
+    key-store-type: PKCS12
+    ciphers: TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384
+    enabled-protocols: TLSv1.3
+
+user:
+  default:
+    pic:
+      url: http://localhost:9000/default/3b6027c1-02bd-41f7-a03a-805197280b39_download.png
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/filestorage
+    username: postgres
+    password: ankit
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  application:
+    name: user-service

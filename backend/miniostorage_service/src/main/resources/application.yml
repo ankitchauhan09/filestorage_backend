@@ -1,0 +1,49 @@
+#spring.application.name=miniostorage_service
+spring:
+  application:
+    name: miniostorage_service
+  servlet:
+    multipart:
+      max-request-size: 3GB
+      max-file-size: 2GB
+      enabled: true
+  cache:
+    type: redis
+    host: localhost
+    port: 6379
+    redis:
+      time-to-live: 60000
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/filestorage
+    username: postgres
+    password: ankit
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.fasterxml.jackson.databind: DEBUG
+
+minio:
+  access-key: cpM8P2XebrznHlZqhbqg
+  secret-key: aj3RWpU42K7WssDcNI97QZPOtuVo7IKq6YP5PgYl
+  server-address: http://127.0.0.1:9000
+
+server:
+  port: 8003
+  ssl:
+    key-password: filestorage_storage
+    key-store-password: filestorage_storage
+    key-store: classpath:storage_service.jks
+    key-store-type: PKCS12
+    ciphers: TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384
+    enabled-protocols: TLSv1.3
+    key-alias: storage_service
+    trust-store: classpath:storage_service_truststore.jks
+    trust-store-password: filestorage_storage

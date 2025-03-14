@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: auth-service
+
+gmail:
+  password: bkwg wdwr ffev hjpx
+  username: ankit2211chauhan@gmail.com
+
+keycloak:
+  server:
+    url: http://localhost:8080
+  realm: filestorage
+  clientId: filestorage-auth-client
+  clientSecret: M3btMU0ocRXxxQvGN0tEERb1l2uUR0Gj
+
+
+authorization:
+  redirect:
+    uri: http://localhost:8000/api/v1/auth/callback
+
+server:
+  port: 8001
+
+

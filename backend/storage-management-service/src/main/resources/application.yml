@@ -1,0 +1,28 @@
+#spring.application.name=storage-management-service
+
+spring:
+  application:
+    name: storage-management-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/filestorage
+    username: postgres
+    password: ankit
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+
+server:
+  port: 8004
+  ssl:
+    key-store: classpath:storage-management-service.jks
+    key-store-type: PKCS12
+    ciphers: TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384
+    enabled-protocols: TLSv1.3
+    key-alias: storage-management-service
+    key-store-password: filestorage_storagemanagement
+    key-password: filestorage_storagemanagement
